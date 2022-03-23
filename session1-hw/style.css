@@ -1,0 +1,40 @@
+.box-total {
+  width: 500px;
+  height: 500px;
+  border: solid black 1px;
+  padding: 10px 10px;
+}
+
+.box-head,
+.box-detail {
+  display: flex;
+  margin: 5px 10px;
+}
+
+.box-left {
+  width: 370px;
+}
+
+#txtFind {
+  width: 300px;
+}
+
+#btnAdd,
+#btnDelete {
+  width: 110px;
+}
+
+input {
+  border-radius: 5px;
+  padding: 2px 5px;
+  background: lightgrey;
+  border: solid grey 1px;
+}
+
+button {
+  border-radius: 5px;
+  padding: 2px 12px;
+  background: blue;
+  color: white;
+  border: solid blue 1px;
+}
