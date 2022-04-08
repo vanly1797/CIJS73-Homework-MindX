@@ -1,0 +1,10 @@
+html{
+    scroll-behavior: smooth;
+}
+
+button{
+    position: fixed;
+    bottom: 10px;
+    cursor: pointer;
+    right: 50px;
+}

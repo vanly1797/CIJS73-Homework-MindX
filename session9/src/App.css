@@ -1,0 +1,22 @@
+.box-header{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+    background-color: #C4C4C4;
+    padding: 10px 100px;
+}
+
+.box-content{
+    margin: 20px 380px;
+    border: 1px solid black;
+    width: 500px;
+    text-align: center;
+    padding: 30px 30px;
+}
+
+.box-footer{
+    border: 1px solid black;
+    margin-top: 50px;
+    text-align: center;
+    background-color: #C4C4C4;
+}
