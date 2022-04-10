@@ -6,11 +6,16 @@ const TopScrolling = () => {
 
     useEffect(() => {
         const handleScrolling = () => {
-            setScrollTop(document.documentElement.scrollTop);
+            setTimeout(() => {
+                setScrollTop(document.documentElement.scrollTop);
+            }, 5000);
+
         };
+
         document.addEventListener("scroll", handleScrolling);
 
         return () => {
+            clearTimeout();
             document.removeEventListener("scroll", handleScrolling);
         };
     });
