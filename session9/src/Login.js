@@ -6,7 +6,11 @@ const Login = () => {
 
     return (
         <div>
-            {value.checklogin ? `Welcome, ${value.username}` : "Login"}
+            {value.code === "vi" ? (
+                <div>{value.checklogin ? `Xin chào, ${value.username}` : "Đăng nhập"}</div>
+            ) : (
+                <div>{value.checklogin ? `Welcome, ${value.username}` : "Login"}</div>
+            )}
         </div>
     );
 };

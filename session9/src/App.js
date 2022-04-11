@@ -5,14 +5,13 @@ import Header from './Header';
 import Login from './Login';
 import Context from './Context';
 import { useState } from 'react';
-import LanguageContext from './Context.js';
 
 function App() {
   const [name, setName] = useState("");
   const [login, setLogin] = useState(false);
   const [code, setCode] = useState("vi");
   return (
-    <Context.Provider value={{ username: name, setName: setName, checklogin: login, setLogin: setLogin }}>
+    <Context.Provider value={{ username: name, setName: setName, checklogin: login, setLogin: setLogin, code: code, setCode: setCode }}>
       <div style={{ height: "100vh", display: "flex", flexDirection: "column" }}>
 
         <div className='box-header'>
