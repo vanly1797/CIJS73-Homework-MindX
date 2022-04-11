@@ -4,25 +4,30 @@ import Footer from './Footer';
 import Header from './Header';
 import Login from './Login';
 import Context from './Context';
+import { useState } from 'react';
+import LanguageContext from './Context.js';
 
 function App() {
+  const [name, setName] = useState("");
+  const [login, setLogin] = useState(false);
+  const [code, setCode] = useState("vi");
   return (
-    <div className="App">
+    <Context.Provider value={{ username: name, setName: setName, checklogin: login, setLogin: setLogin }}>
       <div style={{ height: "100vh", display: "flex", flexDirection: "column" }}>
-        <Context.Provider>
-          <div className='box-header'>
-            <Header />
-            <Login />
-          </div>
-          <div className='box-content'>
-            <Content />
-          </div>
-          <div className='box-footer'>
-            <Footer />
-          </div>
-        </Context.Provider>
+
+        <div className='box-header'>
+          <Header />
+          <Login />
+        </div>
+        <div className='box-content'>
+          <Content />
+        </div>
+        <div className='box-footer'>
+          <Footer />
+        </div>
+
       </div>
-    </div>
+    </Context.Provider>
   );
 }
 

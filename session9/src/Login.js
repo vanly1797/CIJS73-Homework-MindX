@@ -1,7 +1,12 @@
+import { useContext } from "react";
+import Context from "./Context";
+
 const Login = () => {
+    const value = useContext(Context);
+
     return (
         <div>
-            Login
+            {value.checklogin ? `Welcome, ${value.username}` : "Login"}
         </div>
     );
 };
