@@ -1,0 +1,16 @@
+.box-form input{
+    border: 1px solid #C4C4C4;
+    margin-bottom: 10px;
+    padding: 5px 20px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.box-form button{
+    width: 225px;
+    border: 1px solid #C4C4C4;
+    background-color: #4B88FF;
+    color: white;
+    padding: 5px 20px;
+    text-align: center;
+}
