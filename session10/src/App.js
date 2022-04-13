@@ -6,6 +6,8 @@ import Invoices from "./components/Invoices"
 import Cart from "./components/Cart"
 import Profile from "./components/Profile"
 import About from "./components/About"
+import ProductDetail from "./components/ProductDetail"
+import InvoiceDetail from "./components/InvoiceDetail"
 
 function App() {
   return (
@@ -15,8 +17,12 @@ function App() {
         <Route path='/auth' element={<Auth />}>
           <Route path='login' element={<Login />} />
           <Route path='register' element={<Register />} />
-          <Route path='products' element={<Products />} />
-          <Route path='invoices' element={<Invoices />} />
+          <Route path='products' element={<Products />} >
+            <Route path=":productId" element={<ProductDetail />} />
+          </Route>
+          <Route path='invoices' element={<Invoices />} >
+            <Route path=":invoiceId" element={<InvoiceDetail />} />
+          </Route>
           <Route path='cart' element={<Cart />} />
           <Route path='profile' element={<Profile />} />
           <Route path='about' element={<About />} />

@@ -13,4 +13,15 @@
     color: white;
     padding: 5px 20px;
     text-align: center;
+    cursor: pointer;
+}
+
+.box-list-products, .box-list-invoices li {
+    width: 200px;
+    border: 1px solid #999999;
+    background-color: #4B88FF;
+    color: white;
+    padding: 5px 20px;
+    margin-top: 10px;
+    text-align: center;
 }
