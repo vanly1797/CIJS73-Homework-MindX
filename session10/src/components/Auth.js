@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { NavLink, Outlet } from "react-router-dom";
+import Context from "./Context";
 import './style.css'
 
 const Auth = () => {
@@ -20,57 +21,54 @@ const Auth = () => {
 };
 
 const Login = () => {
-    const [login, setLogin] = useState(false);
-    const [username, setUsername] = useState("");
-    const [visible, setVisible] = useState(true);
+    const value = useContext(Context);
 
     const handleInputUsername = (e) => {
-        setUsername(e.target.value);
+        value.setName(e.target.value);
     }
 
     const handleLogin = () => {
-        if (/\S/.test(username) !== "") {
-            setLogin(true)
-            setVisible(false)
+        if (/\S/.test(value.username) !== "") {
+            value.setCheckLogin(true)
+            value.setVisible(false)
         }
         else {
-            setLogin(false)
-            setVisible(true)
+            value.setCheckLogin(false)
+            value.setVisible(true)
         }
     };
 
     return (
         <div>
-            <h1>Login Page</h1>
-            <div>
-                {visible && (
+            {value.visible && (
+                <div>
+                    <h1>Login Page</h1>
                     <div className="box-form">
-                        <input type="text" placeholder="Enter username here..." value={username} onChange={handleInputUsername} /> <br />
+                        <input type="text" placeholder="Enter username here..." value={value.username} onChange={handleInputUsername} /> <br />
                         <button type="submit" onClick={handleLogin}>Login</button>
                     </div>
-                )}
-                {login && (<div>
-                    <h2>{`Hello, ${username}`}</h2>
-                    <ul>
-                        <li>
-                            <NavLink to="/auth/products">Products</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/auth/invoices">Invoices</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/auth/cart">Cart</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/auth/profile">Profile</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/auth/about">About</NavLink>
-                        </li>
-                    </ul>
-                </div>)}
-            </div>
-
+                </div>
+            )}
+            {value.checklogin && (<div>
+                <h2>{`Hello, ${value.username}`}</h2>
+                <ul>
+                    <li>
+                        <NavLink to="/auth/products">Products</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/auth/invoices">Invoices</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/auth/cart">Cart</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/auth/profile">Profile</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/auth/about">About</NavLink>
+                    </li>
+                </ul>
+            </div>)}
         </div>
     );
 };
