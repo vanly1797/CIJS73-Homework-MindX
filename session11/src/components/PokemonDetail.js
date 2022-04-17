@@ -1,29 +1,20 @@
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useState } from "react";
 
 const PokemonDetail = () => {
     const [pokemon, setPokemon] = useState(null);
-    const params = useParams();
+    const [input, setInput] = useState("");
 
-    console.log(pokemon);
-    useEffect(() => {
-        axios
-            .get(`https://pokeapi.co/api/v2/pokemon/${params.name}`)
-            .then((respone) => {
-                setPokemon(respone.data);
-            });
-    }, [params.name]);
-
-    const handleFindPokemon = () => {
-
+    const handleFindPokemon = async ({ id }) => {
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+        const data = await response.json();
+        return setPokemon(data);
     }
 
     return (
         <div>
             <div>
-                <input type="text" placeholder="Enter id or name here ..." />
-                <button onClick={handleFindPokemon}>Find Pokemon</button>
+                <input type="text" placeholder="Enter id or name here ..." value={input} onChange={(e) => { setInput(e.target.value) }} />
+                <button onClick={() => { handleFindPokemon({ id: input }) }}>Find Pokemon</button>
             </div>
             {pokemon && (
                 <div>
